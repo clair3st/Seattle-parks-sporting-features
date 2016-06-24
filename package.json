@@ -1,0 +1,19 @@
+{
+  "name": "fieldfinder",
+  "version": "1.0.0",
+  "description": "codefellows 301 project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clair3st/Seattle-parks-sporting-features.git"
+  },
+  "author": "clairejgatenby@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clair3st/Seattle-parks-sporting-features/issues"
+  },
+  "homepage": "https://github.com/clair3st/Seattle-parks-sporting-features#readme"
+}
