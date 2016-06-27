@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/clair3st/Seattle-parks-sporting-features/issues"
   },
-  "homepage": "https://github.com/clair3st/Seattle-parks-sporting-features#readme",
-  "dependencies": {
-    "express": "^4.14.0"
-  }
+  "homepage": "https://github.com/clair3st/Seattle-parks-sporting-features#readme"
 }
