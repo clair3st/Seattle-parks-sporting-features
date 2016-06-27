@@ -24,7 +24,7 @@
     try {
       if (openDatabase) {
         _config(isVerbose);
-        html5sql.openDatabase('blogDB', 'Blog Database', 5*1024*1024);
+        html5sql.openDatabase('parksDB', 'Parks Database', 5*1024*1024);
       } else {
         console.log('Web Databases not supported.');
       }
@@ -45,7 +45,7 @@
   };
 
   module.webDB = webDB;
-})(window)
+})(window);
 
 // We can go ahead and set up the basic db connection now:
 webDB.init(true);

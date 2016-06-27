@@ -42,7 +42,7 @@
           return new ParkData;
         });
       } else {
-        $.get('https://data.seattle.gov/resource/64yg-jvpt.json')
+        $.get('https://data.seattle.gov/resource/64yg-jvpt.json?$$app_token=TDroSLKHRDeFPJQ6CoJrXbMwJ&$limit=2000')
         .done(function(data){
           data.forEach(function(item){
             var parkObject = new ParkData(item);
@@ -58,7 +58,9 @@
     });
   };
 
-
+  ParkData.truncateTable = function() {
+    webDB.execute('DELETE FROM parks_database');
+  };
 
 
 
