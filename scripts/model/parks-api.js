@@ -6,7 +6,7 @@
     },this);
   }
   ParkData.allParks = [];
-  ParkData.allSports = [];
+  ParkData.allSportsArray = [];
 
   ParkData.createTable = function(){
     webDB.execute(
@@ -51,7 +51,7 @@
           });
           webDB.execute('SELECT * FROM parks_database', function(rows){
             ParkData.allParks = rows.map(function(ele) {
-              ParkData.allParks.push(new ParkData(ele));
+              return new ParkData(ele);
             });
           });
         });
@@ -59,7 +59,7 @@
     });
   };
 
-  ParkData.getAllSports = function() {
+  ParkData.getAllSportsArray = function() {
     webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" '+
     'OR feature LIKE "cricket" ' +
     'OR feature LIKE "disc%" ' +
@@ -70,13 +70,29 @@
     'OR feature LIKE "tennis%" ' +
     'OR feature LIKE "zipline"' +
     ';',
-    function(selectedItems) {
-      ParkData.allSports.push(new ParkData(selectedItems));
+    function(rows) {
+      ParkData.allSportsArray = rows.map(function(ele) {
+        return new ParkData(ele);
+      });
     });
   };
 
   ParkData.truncateTable = function() {
     webDB.execute('DELETE FROM parks_database');
+  };
+
+  ParkData.allSports = function() {
+    return ParkData.allSportsArray.map(function(obj) {
+      return obj.feature;
+
+    })
+    .reduce(function(uniqueSports, sport) {
+      if (uniqueSports.indexOf(sport) === -1) {
+        uniqueSports.push(sport);
+      }
+      return uniqueSports;
+
+    }, []);
   };
 
 
