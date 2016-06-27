@@ -6,6 +6,7 @@
     },this);
   }
   ParkData.allParks = [];
+  ParkData.allSports = [];
 
   ParkData.createTable = function(){
     webDB.execute(
@@ -39,7 +40,7 @@
     webDB.execute('SELECT * FROM parks_database', function(rows) {
       if (rows.length) {
         ParkData.allParks = rows.map(function(ele) {
-          return new ParkData;
+          return new ParkData(ele);
         });
       } else {
         $.get('https://data.seattle.gov/resource/64yg-jvpt.json?$$app_token=TDroSLKHRDeFPJQ6CoJrXbMwJ&$limit=2000')
@@ -50,11 +51,27 @@
           });
           webDB.execute('SELECT * FROM parks_database', function(rows){
             ParkData.allParks = rows.map(function(ele) {
-              return new ParkData;
+              ParkData.allParks.push(new ParkData(ele));
             });
           });
         });
       }
+    });
+  };
+
+  ParkData.getAllSports = function() {
+    webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" '+
+    'OR feature LIKE "cricket" ' +
+    'OR feature LIKE "disc%" ' +
+    'OR feature LIKE "lacrosse" ' +
+    'OR feature LIKE "Pool%" ' +
+    'OR feature LIKE "rugby" ' +
+    'OR feature LIKE "soccer" ' +
+    'OR feature LIKE "tennis%" ' +
+    'OR feature LIKE "zipline"' +
+    ';',
+    function(selectedItems) {
+      ParkData.allSports.push(new ParkData(selectedItems));
     });
   };
 
