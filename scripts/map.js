@@ -2,25 +2,25 @@
 
   var stylesArray = [
     {
-      featureType: "all",
+      featureType: 'all',
       stylers: [
-        { hue: "#00ffe6" },
+        { hue: '#00ffe6' },
         { saturation: -20 }
       ]
     },
     {
-      featureType: "road",
-      elementType: "geometry",
+      featureType: 'road',
+      elementType: 'geometry',
       stylers: [
         { lightness: 100 },
-        { visibility: "simplified" }
+        { visibility: 'simplified' }
       ]
     },
     {
-      featureType: "road",
-      elementType: "labels",
+      featureType: 'road',
+      elementType: 'labels',
       stylers: [
-        { visibility: "off" }
+        { visibility: 'off' }
       ]
     }
   ];
@@ -30,6 +30,7 @@
     styles: stylesArray,
     center: new google.maps.LatLng(47.618217, -122.351832),
     mapTypeId: google.maps.MapTypeId.STREET,
+    scrollwheel: false,
     zoomControl: true,
     zoomControlOptions: {
       position: google.maps.ControlPosition.RIGHT_CENTER
@@ -38,5 +39,5 @@
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-module.map = map;
+  module.map = map;
 })(window);
