@@ -7,6 +7,7 @@
   }
   ParkData.allParks = [];
   ParkData.allSportsArray = [];
+  ParkData.uniqueSports = [];
 
   ParkData.createTable = function(){
     webDB.execute(
@@ -74,6 +75,7 @@
       ParkData.allSportsArray = rows.map(function(ele) {
         return new ParkData(ele);
       });
+      parkView.renderIndexPage();
     });
   };
 
@@ -90,10 +92,13 @@
       if (uniqueSports.indexOf(sport) === -1) {
         uniqueSports.push(sport);
       }
-      return uniqueSports;
+      return ParkData.uniqueSports = uniqueSports;
 
     }, []);
   };
+
+
+
 
 
 
