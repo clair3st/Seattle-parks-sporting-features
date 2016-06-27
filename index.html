@@ -16,7 +16,7 @@
 
     <!-- templates -->
     <script id="sports-filter-template" type="text/x-handlebars-template">
-      <option value="{{feature_desc}}">{{feature_desc}}</option>
+      <option value="{{feature}}">{{feature}}</option>
     </script>
   </head>
   <body>
@@ -52,10 +52,8 @@
               <input type="text" class="form-control" id="user-location" placeholder="Location">
             </div>
             <div class="form-group">
-              <select class="activity-picker form-control">
-                <option>Mustard</option>
-                <option>Ketchup</option>
-                <option>Relish</option>
+              <select id="sport-filter" class="activity-picker form-control">
+                <option>-- Select your Sport --</option>
               </select>
             </div>
             <a type="submit" class="btn btn-primary">Search</a>
@@ -82,7 +80,7 @@
     <script src="scripts/model/parks-api.js"></script>
 
     <!-- View files: -->
-
+    <script src="scripts/views/parksView.js"></script>
 
     <!-- Controller files: -->
     <!-- <script src="scripts/controllers/routes.js"></script> -->
