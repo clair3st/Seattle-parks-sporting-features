@@ -9,22 +9,49 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/map.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
   </head>
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sff-mobile-navigation" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">SFF</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="#sff-mobile-navigation">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
+
+    <main class="container-fluid" id="map">
+    </main>
 
     <!-- Vendor scripts -->
     <script src="vendor/scripts/jquery-2.2.4.min.js"></script>
-    <script src="vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/scripts/handlebars.js"></script>
-    <script src="vendor/scripts/marked.js"></script>
     <script src="vendor/scripts/html5sql.js"></script>
     <script src="vendor/scripts/webdb.js"></script>
     <script src="vendor/scripts/page.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-7sHOhSlgAw8EOZcLpLFK3opHvtDNb9g&v=3.exp&libraries=visualization"></script>
+
+    <!-- Custom scripts -->
+    <script src="scripts/map.js"></script>
 
     <!-- Model files: -->
 
@@ -33,6 +60,6 @@
 
 
     <!-- Controller files: -->
-    <script src="scripts/controllers/routes.js"></script>
+    <!-- <script src="scripts/controllers/routes.js"></script> -->
   </body>
 </html>
