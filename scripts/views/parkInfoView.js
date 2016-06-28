@@ -28,7 +28,7 @@
       position: map.userLatLng,
       map: map
     });
-    markerHome.setIcon('home-icon.png');
+    markerHome.setIcon('img/home-icon.png');
     map.setCenter(map.userLatLng);
 
 
