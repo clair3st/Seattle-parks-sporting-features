@@ -41,8 +41,21 @@
 
   google.maps.event.addDomListener(window, 'load', function() {
     var input = document.getElementById('user-location');
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    map.autocomplete = new google.maps.places.Autocomplete(input);
   });
+
+  $('#user-form-button').on('click', function() {
+    var userLocation = map.autocomplete.getPlace();
+    marker = new google.maps.Marker({
+      position: {
+        lat: userLocation.geometry.location.lat(),
+        lng: userLocation.geometry.location.lng()
+      },
+      map: map
+    });
+    marker.setMap(map);
+  });
+
 
   module.map = map;
 })(window);
