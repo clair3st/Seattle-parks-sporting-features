@@ -64,7 +64,7 @@
   };
 
   ParkData.getAllSportsArray = function() {
-    webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" '+
+    webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" ' +
     'OR feature LIKE "cricket" ' +
     'OR feature LIKE "disc%" ' +
     'OR feature LIKE "lacrosse" ' +
@@ -88,7 +88,8 @@
   };
 
   ParkData.updateRecord = function() {
-    webDB.execute('UPDATE parks_database SET address = "9220 14th Ave NW", lat = 47.6966073, lng = -122.3740796 WHERE name = "Crown Hill Park"');
+    webDB.execute('UPDATE parks_database SET address = "9220 14th Ave NW", lat = -122.3740796, lng = 47.6966073 WHERE name = "Crown Hill Park"');
+    webDB.execute('UPDATE parks_database SET hours = "4 a.m. - 11:30 p.m." WHERE name = "Discovery Park"');
   };
 
   ParkData.allSports = function() {
