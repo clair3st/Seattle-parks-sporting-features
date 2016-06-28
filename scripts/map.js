@@ -38,6 +38,7 @@
   };
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  map.userLatLng = mapOptions.center;
 
   google.maps.event.addDomListener(window, 'load', function() {
     var input = document.getElementById('user-location');
@@ -46,16 +47,24 @@
 
   $('#user-form-button').on('click', function() {
     var userLocation = map.autocomplete.getPlace();
+    map.userLatLng = {
+      lat: userLocation.geometry.location.lat(),
+      lng: userLocation.geometry.location.lng()
+    };
+    if (typeof marker !== 'undefined') {
+      marker.setMap(null);
+    }
     marker = new google.maps.Marker({
-      position: {
-        lat: userLocation.geometry.location.lat(),
-        lng: userLocation.geometry.location.lng()
-      },
+      position: map.userLatLng,
       map: map
     });
     marker.setMap(map);
+    map.setCenter(map.userLatLng);
   });
 
+  google.maps.event.addDomListener(window, 'resize', function() {
+    map.setCenter(map.userLatLng);
+  });
 
   module.map = map;
 })(window);
