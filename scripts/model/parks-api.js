@@ -3,11 +3,14 @@
   function ParkData(opts){
     Object.keys(opts).forEach(function(e, index, keys) {
       this[e] = opts[e];
+      this.location = {
+        lat: this.lat,
+        lng: this.lng
+      };
     },this);
   }
   ParkData.allParks = [];
   ParkData.allSportsArray = [];
-  ParkData.uniqueSports = [];
 
   ParkData.createTable = function(){
     webDB.execute(
