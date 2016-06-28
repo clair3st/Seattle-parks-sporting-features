@@ -70,6 +70,7 @@
     'OR feature LIKE "soccer" ' +
     'OR feature LIKE "tennis%" ' +
     'OR feature LIKE "zipline"' +
+    'ORDER BY feature ASC' +
     ';',
     function(rows) {
       ParkData.allSportsArray = rows.map(function(ele) {
