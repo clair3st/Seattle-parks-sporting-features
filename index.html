@@ -18,6 +18,14 @@
     <script id="sports-filter-template" type="text/x-handlebars-template">
       <option value="{{feature}}">{{feature}}</option>
     </script>
+    <script id="park-template" type="text/x-handlebars-template">
+      <h1>{{name}}</h1>
+      <p>{{feature}}</p>
+      <p>Hours: {{hours}}</p>
+      <p>Address: {{address}}</p>
+      <p>Lighting: {{lighting}}</p>
+      <a id="back-link">Back to map</a>
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -44,7 +52,7 @@
 
     <main class="container-fluid">
       <!-- User form -->
-      <div id="user-form-container">
+      <div id="user-form-container" class="tab-content">
         <form class="form-inline">
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
@@ -60,8 +68,9 @@
 
         </form>
       </div>
+      <section id="park-info" class="tab-content"></section>
       <!-- Google map div -->
-      <div id="map"></div>
+      <div id="map" class="tab-content"></div>
     </main>
 
     <!-- Vendor scripts -->
@@ -81,6 +90,7 @@
 
     <!-- View files: -->
     <script src="scripts/views/parksView.js"></script>
+    <script src="scripts/views/parkInfoView.js"></script>
 
     <!-- Controller files: -->
     <!-- <script src="scripts/controllers/routes.js"></script> -->

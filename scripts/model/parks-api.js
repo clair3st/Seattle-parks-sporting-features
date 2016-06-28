@@ -3,11 +3,14 @@
   function ParkData(opts){
     Object.keys(opts).forEach(function(e, index, keys) {
       this[e] = opts[e];
+      this.location = {
+        lat: this.lat,
+        lng: this.lng
+      };
     },this);
   }
   ParkData.allParks = [];
   ParkData.allSportsArray = [];
-  ParkData.uniqueSports = [];
 
   ParkData.createTable = function(){
     webDB.execute(
@@ -17,8 +20,8 @@
         'address VARCHAR NOT NULL, ' +
         'feature VARCHAR NOT NULL, ' +
         'hours VARCHAR, ' +
-        'lat FLOAT, ' +
-        'lng FLOAT, ' +
+        'lat FLOAT NOT NULL, ' +
+        'lng FLOAT NOT NULL, ' +
         'lighting BOOLEAN);',
         function() {
           console.log('successfully set up parks database table');
@@ -61,7 +64,7 @@
   };
 
   ParkData.getAllSportsArray = function() {
-    webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" '+
+    webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" ' +
     'OR feature LIKE "cricket" ' +
     'OR feature LIKE "disc%" ' +
     'OR feature LIKE "lacrosse" ' +
@@ -82,6 +85,11 @@
 
   ParkData.truncateTable = function() {
     webDB.execute('DELETE FROM parks_database');
+  };
+
+  ParkData.updateRecord = function() {
+    webDB.execute('UPDATE parks_database SET address = "9220 14th Ave NW", lat = -122.3740796, lng = 47.6966073 WHERE name = "Crown Hill Park"');
+    webDB.execute('UPDATE parks_database SET hours = "4 a.m. - 11:30 p.m." WHERE name = "Discovery Park"');
   };
 
   ParkData.allSports = function() {
