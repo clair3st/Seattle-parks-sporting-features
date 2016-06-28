@@ -21,9 +21,10 @@
     <script id="park-template" type="text/x-handlebars-template">
       <h1>{{name}}</h1>
       <p>{{feature}}</p>
-      <p>Hours:{{hours}}</p>
-      <p>Address:{{address}}</p>
-      <p>Lighting{{lighting}}</p>
+      <p>Hours: {{hours}}</p>
+      <p>Address: {{address}}</p>
+      <p>Lighting: {{lighting}}</p>
+      <a id="back-link">Back to map</a>
     </script>
   </head>
   <body>
@@ -51,7 +52,7 @@
 
     <main class="container-fluid">
       <!-- User form -->
-      <div id="user-form-container">
+      <div id="user-form-container" class="tab-content">
         <form class="form-inline">
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
