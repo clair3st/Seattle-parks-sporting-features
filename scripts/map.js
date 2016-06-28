@@ -43,6 +43,6 @@
     var input = document.getElementById('user-location');
     var autocomplete = new google.maps.places.Autocomplete(input);
   });
-  
+
   module.map = map;
 })(window);
