@@ -20,8 +20,8 @@
         'address VARCHAR NOT NULL, ' +
         'feature VARCHAR NOT NULL, ' +
         'hours VARCHAR, ' +
-        'lat FLOAT, ' +
-        'lng FLOAT, ' +
+        'lat FLOAT NOT NULL, ' +
+        'lng FLOAT NOT NULL, ' +
         'lighting BOOLEAN);',
         function() {
           console.log('successfully set up parks database table');
@@ -85,6 +85,10 @@
 
   ParkData.truncateTable = function() {
     webDB.execute('DELETE FROM parks_database');
+  };
+
+  ParkData.updateRecord = function() {
+    webDB.execute('UPDATE parks_database SET address = "9220 14th Ave NW", lat = 47.6966073, lng = -122.3740796 WHERE name = "Crown Hill Park"');
   };
 
   ParkData.allSports = function() {
