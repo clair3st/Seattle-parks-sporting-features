@@ -39,5 +39,10 @@
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+  google.maps.event.addDomListener(window, 'load', function() {
+    var input = document.getElementById('user-location');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+  });
+  
   module.map = map;
 })(window);
