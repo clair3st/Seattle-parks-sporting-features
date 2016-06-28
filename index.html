@@ -52,7 +52,7 @@
 
     <main class="container-fluid">
       <!-- User form -->
-      <div id="user-form-container" class="tab-content">
+      <section id="user-form-container" class="tab-content">
         <form class="form-inline">
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
@@ -67,10 +67,15 @@
           </div>
 
         </form>
-      </div>
+      </section>
+      <!-- Park info page -->
       <section id="park-info" class="tab-content"></section>
+      <!-- About page -->
+      <section id="about-page" class="tab-content container">
+        <h2>Hello world!</h2>
+      </section>
       <!-- Google map div -->
-      <div id="map" class="tab-content"></div>
+      <section id="map" class="tab-content"></section>
     </main>
 
     <!-- Vendor scripts -->
@@ -93,6 +98,8 @@
     <script src="scripts/views/parkInfoView.js"></script>
 
     <!-- Controller files: -->
-    <!-- <script src="scripts/controllers/routes.js"></script> -->
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/aboutController.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
   </body>
 </html>
