@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+
+    <!-- templates -->
+    <script id="sports-filter-template" type="text/x-handlebars-template">
+      <option value="{{feature}}">{{feature}}</option>
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -39,19 +44,19 @@
 
     <main class="container-fluid">
       <!-- User form -->
-      <div id="user-form-container">
-        <form class="form-inline">
-          <div class="form-group" id="user-location-container">
-            <input type="text" class="form-control" id="user-location" placeholder="Location">
-          </div>
-          <div class="form-group" id="activity-picker-container">
-            <select class="form-control" id="activity-picker">
-              <option>Mustard</option>
-              <option>Ketchup</option>
-              <option>Relish</option>
-            </select>
-          </div>
-          <div class="form-group" id="user-form-submit">
+      <div class="row" id="user-form">
+        <div class="col-sm-6 col-sm-offset-4">
+          <form class="form-inline">
+            <div class="form-group">
+              <label class="sr-only" for="user-location">Location</label>
+              <input type="text" class="form-control" id="user-location" placeholder="Location">
+            </div>
+            <div class="form-group">
+              <select id="sport-filter" class="activity-picker form-control">
+                <option>-- Select your Sport --</option>
+              </select>
+            </div>
+
             <a type="submit" class="btn btn-primary">Search</a>
           </div>
 
@@ -74,10 +79,10 @@
     <script src="scripts/map.js"></script>
 
     <!-- Model files: -->
-
+    <script src="scripts/model/parks-api.js"></script>
 
     <!-- View files: -->
-
+    <script src="scripts/views/parksView.js"></script>
 
     <!-- Controller files: -->
     <!-- <script src="scripts/controllers/routes.js"></script> -->
