@@ -2,7 +2,7 @@
   var parkView = {};
 
   parkView.toHtml = function (sport, scriptTemplateId) {
-    var template = Handlebars.compile($(scriptTemplateId).text());
+    var template = Handlebars.compile($(scriptTemplateId).html());
     return template(sport);
   };
 
