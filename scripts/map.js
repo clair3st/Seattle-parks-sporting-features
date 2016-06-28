@@ -26,14 +26,14 @@
   ];
 
   var mapOptions = {
-    zoom: 15,
+    zoom: 12,
     styles: stylesArray,
-    center: new google.maps.LatLng(47.618217, -122.351832),
+    center: new google.maps.LatLng(47.6062, -122.3321),
     mapTypeId: google.maps.MapTypeId.STREET,
     scrollwheel: false,
     zoomControl: true,
     zoomControlOptions: {
-      position: google.maps.ControlPosition.RIGHT_CENTER
+      position: google.maps.ControlPosition.RIGHT_TOP
     }
   };
 
