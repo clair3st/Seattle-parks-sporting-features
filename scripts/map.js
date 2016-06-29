@@ -2,25 +2,107 @@
 
   var stylesArray = [
     {
-      featureType: 'all',
-      stylers: [
-        { hue: '#00ffe6' },
-        { saturation: -20 }
+      'featureType': 'administrative',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'visibility': 'on'
+        },
+        {
+          'lightness': 33
+        }
       ]
     },
     {
-      featureType: 'road',
-      elementType: 'geometry',
-      stylers: [
-        { lightness: 100 },
-        { visibility: 'simplified' }
+      'featureType': 'landscape',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'color': '#f2e5d4'
+        }
       ]
     },
     {
-      featureType: 'road',
-      elementType: 'labels',
-      stylers: [
-        { visibility: 'off' }
+      'featureType': 'poi.park',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#c5dac6'
+        }
+      ]
+    },
+    {
+      'featureType': 'poi.park',
+      'elementType': 'labels',
+      'stylers': [
+        {
+          'visibility': 'on'
+        },
+        {
+          'lightness': 20
+        }
+      ]
+    },
+    {
+      'featureType': 'road',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'lightness': 20
+        }
+      ]
+    },
+    {
+      'featureType': 'road.highway',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#c5c6c6'
+        }
+      ]
+    },
+    {
+      'featureType': 'road.arterial',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#e4d7c6'
+        }
+      ]
+    },
+    {
+      'featureType': 'road.local',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#fbfaf7'
+        }
+      ]
+    },
+    {
+      'featureType': 'water',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'visibility': 'on'
+        },
+        {
+          'color': '#acbcc9'
+        }
+      ]
+    },
+    {
+      'featureType': 'transit',
+      'elementType': 'labels.text',
+      'stylers': [
+        {'visibility': 'off'}
+      ]
+    },
+    {
+      'featureType': 'transit.line',
+      'elementType': 'geometry',
+      'stylers': [
+        {'visibility': 'off'}
       ]
     }
   ];
@@ -44,34 +126,6 @@
     var input = document.getElementById('user-location');
     map.autocomplete = new google.maps.places.Autocomplete(input);
   });
-
-  // $('#user-form-button').on('click', function() {
-  //   var userLocation = map.autocomplete.getPlace();
-  //   map.userLatLng = {
-  //     lat: userLocation.geometry.location.lat(),
-  //     lng: userLocation.geometry.location.lng()
-  //   };
-  //   if (typeof marker !== 'undefined') {
-  //     marker.setMap(null);
-  //   }
-  //   marker = new google.maps.Marker({
-  //     position: map.userLatLng,
-  //     map: map
-  //   });
-  //   marker.setMap(map);
-  //   map.setCenter(map.userLatLng);
-  //
-  //   if($('#sport-filter').val()){
-  //     var marker;
-  //     ParkData.allSportsArray.filter(function(a){
-  //       return a.feature = $(this).val();
-  //     }).forEach(function(a) {
-  //         marker = new google.maps.Marker({
-  //         position: {lat: a.lng, lng: a.lat},
-  //         map: map
-  //       });
-  //   }
-  // });
 
   google.maps.event.addDomListener(window, 'resize', function() {
     map.setCenter(map.userLatLng);
