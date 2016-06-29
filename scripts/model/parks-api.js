@@ -94,6 +94,18 @@
 
   };
 
+  ParkData.findWhere = function(field, value, callback) {
+    webDB.execute(
+      [
+        {
+          sql: 'SELECT * FROM parks_database WHERE ' + field + ' = ?;',
+          data: [value]
+        }
+      ],
+      callback
+    );
+  };
+
   // ParkData.allSports = function() {
   //   return ParkData.allSportsArray.map(function(obj) {
   //     return obj.feature;
