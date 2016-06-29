@@ -2,6 +2,10 @@
   margin-bottom: 0;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
+
 #user-form-container {
   position: absolute;
   top: 35%;

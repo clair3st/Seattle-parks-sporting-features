@@ -42,6 +42,7 @@
           map: map
         });
         parkInfoView.markers.push(markerSport);
+        markerSport.setIcon('img/' + a.feature + '.png');
         markerSport.addListener('click', function() {
           $('.tab-content').hide();
           $('#park-info').empty();
