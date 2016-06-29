@@ -90,21 +90,23 @@
   ParkData.updateRecord = function() {
     webDB.execute('UPDATE parks_database SET address = "9220 14th Ave NW", lat = -122.3740796, lng = 47.6966073 WHERE name = "Crown Hill Park"');
     webDB.execute('UPDATE parks_database SET hours = "4 a.m. - 11:30 p.m." WHERE name = "Discovery Park"');
+    webDB.execute('UPDATE parks_database SET feature = "Softball and Baseball" WHERE feature = "Baseball/Softball"');
+
   };
 
-  ParkData.allSports = function() {
-    return ParkData.allSportsArray.map(function(obj) {
-      return obj.feature;
-
-    })
-    .reduce(function(uniqueSports, sport) {
-      if (uniqueSports.indexOf(sport) === -1) {
-        uniqueSports.push(sport);
-      }
-      return ParkData.uniqueSports = uniqueSports;
-
-    }, []);
-  };
+  // ParkData.allSports = function() {
+  //   return ParkData.allSportsArray.map(function(obj) {
+  //     return obj.feature;
+  //
+  //   })
+  //   .reduce(function(uniqueSports, sport) {
+  //     if (uniqueSports.indexOf(sport) === -1) {
+  //       uniqueSports.push(sport);
+  //     }
+  //     return ParkData.uniqueSports = uniqueSports;
+  //
+  //   }, []);
+  // };
 
 
 
