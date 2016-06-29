@@ -20,7 +20,7 @@
       // $('#map').show();
       // $('#user-form-container').show();
       // parkInfoView.deleteMarkers();
-      ;
+
     });
   };
 
