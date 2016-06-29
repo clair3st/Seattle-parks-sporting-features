@@ -15,9 +15,12 @@
 
   parkInfoView.handleDirections = function() {
     $('#directions-link').on('click', function(){
-      $('.tab-content').hide();
-      $('#map').show();
-      parkInfoView.displayDirections();
+      directionsMapInit(parkInfoView.displayDirections);
+      // $('.tab-content').hide();
+      // $('#map').show();
+      // $('#user-form-container').show();
+      // parkInfoView.deleteMarkers();
+
     });
   };
 
@@ -26,6 +29,7 @@
 
 
   $('#user-form-button').on('click', function() {
+    parkInfoView.userAddress = document.getElementById('user-location').value;
     parkInfoView.userLocation = map.autocomplete.getPlace();
     map.userLatLng = {
       lat: parkInfoView.userLocation.geometry.location.lat(),
@@ -38,6 +42,7 @@
       position: map.userLatLng,
       map: map
     });
+    // markerHome.setMap(directionsMap);
     markerHome.setIcon('img/home-icon.png');
     map.setCenter(map.userLatLng);
 
@@ -54,7 +59,7 @@
         parkInfoView.markers.push(markerSport);
         markerSport.setIcon('img/' + a.feature + '.png');
         markerSport.addListener('click', function() {
-          parkInfoView.destination = a.address;
+          parkInfoView.destination = new google.maps.LatLng(a.lng, a.lat);
           $('.tab-content').hide();
           $('#park-info').empty();
           $('#park-info').append(parkView.toHtml(a, '#park-template'));
@@ -74,7 +79,7 @@
     parkInfoView.markers = [];
   };
 
-  parkInfoView.displayDirections = function() {
+  parkInfoView.displayDirections = function(directionMap) {
     var directionsService = new google.maps.DirectionsService;
     directionsService.route({
       origin: new google.maps.LatLng(map.userLatLng.lat, map.userLatLng.lng),
@@ -83,7 +88,7 @@
     }, function(response, status){
       if (status === google.maps.DirectionsStatus.OK){
         var directionsDisplay = new google.maps.DirectionsRenderer({
-          map: map,
+          map: directionsMap,
           directions: response,
           draggable: true,
           polylineOptions: {
