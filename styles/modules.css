@@ -8,12 +8,14 @@
 
 #user-form-container {
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 0;
   right: 0;
   margin: 0 1em;
-  /*padding: 0 20em;*/
   z-index: 2;
+  background: rgba(134, 214, 148, 0.7);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  padding: 3em;
 }
 
 #user-form-container .btn {
@@ -22,6 +24,7 @@
 
 #user-form-container #user-location {
   width: 100%;
+  z-index: 3;
 }
 
 #user-form-container .activity-picker {
@@ -36,8 +39,8 @@
 
 @media only screen and (min-width: 768px) and (max-width : 991px) {
   #user-form-container {
-    margin: 0 12em;
-    top: 40%;
+    margin: 0 10em;
+    top: 35%;
   }
 
   #user-form-container #user-location-container {
@@ -50,10 +53,25 @@
 
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) and (max-width : 1450px) {
   #user-form-container {
     margin: 0 20em;
-    top: 40%;
+    top: 35%;
+  }
+  #user-form-container #user-location-container {
+    width: 50%;
+  }
+
+  #user-form-container #activity-picker-container {
+    width: 30%;
+  }
+
+}
+
+@media only screen and (min-width: 1451px) {
+  #user-form-container {
+    margin: 0 35em;
+    top: 35%;
   }
   #user-form-container #user-location-container {
     width: 50%;
