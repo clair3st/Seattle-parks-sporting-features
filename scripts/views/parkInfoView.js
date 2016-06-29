@@ -5,13 +5,13 @@
   parkInfoView.destination;
   parkInfoView.origin;
 
-  parkInfoView.handleBack = function() {
-    $('#back-link').on('click', function(){
-      $('.tab-content').hide();
-      $('#map').show();
-      $('#user-form-container').show();
-    });
-  };
+  // parkInfoView.handleBack = function() {
+  //   $('#back-link').on('click', function(){
+  //     $('.tab-content').hide();
+  //     $('#map').show();
+  //     $('#user-form-container').show();
+  //   });
+  // };
 
   parkInfoView.handleDirections = function() {
     $('#directions-link').on('click', function(){
@@ -66,11 +66,26 @@
           $('#park-info').show();
           parkInfoView.handleBack();
           parkInfoView.handleDirections();
-        });
-      });
+          page('/park/'+a.id);
 
+        });
+
+        // markerSport.addListener('click', function() {
+        //   $('.tab-content').hide();
+        //   $('#park-info').empty();
+        //   $('#park-info').append(parkView.toHtml(a, '#park-template'));
+        //   $('#park-info').show();
+        //   parkInfoView.handleBack();
+        // });
+      });
     }
   });
+
+  parkInfoView.index = function(parks) {
+    $('.tab-content').hide();
+    $('#park-info').html(parkView.toHtml(parks[0], '#park-template'));
+    $('#park-info').show();
+  };
 
   parkInfoView.deleteMarkers = function() {
     for (var i = 0; i < parkInfoView.markers.length; i++) {
