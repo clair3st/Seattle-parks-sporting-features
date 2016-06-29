@@ -15,7 +15,6 @@
     console.log('append to filter');
   };
 
-  // parkView.renderIndexPage();
   module.parkView = parkView;
 
 })(window);
