@@ -3,13 +3,13 @@
   var parkInfoView = {};
   parkInfoView.markers = [];
 
-  parkInfoView.handleBack = function() {
-    $('#back-link').on('click', function(){
-      $('.tab-content').hide();
-      $('#map').show();
-      $('#user-form-container').show();
-    });
-  };
+  // parkInfoView.handleBack = function() {
+  //   $('#back-link').on('click', function(){
+  //     $('.tab-content').hide();
+  //     $('#map').show();
+  //     $('#user-form-container').show();
+  //   });
+  // };
 
 
   ParkData.getAllSportsArray();
