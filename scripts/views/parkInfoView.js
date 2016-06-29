@@ -2,25 +2,12 @@
 
   var parkInfoView = {};
   parkInfoView.markers = [];
-  parkInfoView.destination;
-  parkInfoView.origin;
-
-  // parkInfoView.handleBack = function() {
-  //   $('#back-link').on('click', function(){
-  //     $('.tab-content').hide();
-  //     $('#map').show();
-  //     $('#user-form-container').show();
-  //   });
-  // };
 
   parkInfoView.handleDirections = function() {
+    console.log('directions!');
+
     $('#directions-link').on('click', function(){
       directionsMapInit(parkInfoView.displayDirections);
-      // $('.tab-content').hide();
-      // $('#map').show();
-      // $('#user-form-container').show();
-      // parkInfoView.deleteMarkers();
-
     });
   };
 
@@ -42,7 +29,6 @@
       position: map.userLatLng,
       map: map
     });
-    // markerHome.setMap(directionsMap);
     markerHome.setIcon('img/home-icon.png');
     map.setCenter(map.userLatLng);
 
@@ -60,23 +46,8 @@
         markerSport.setIcon('img/' + a.feature + '.png');
         markerSport.addListener('click', function() {
           parkInfoView.destination = new google.maps.LatLng(a.lng, a.lat);
-          $('.tab-content').hide();
-          $('#park-info').empty();
-          $('#park-info').append(parkView.toHtml(a, '#park-template'));
-          $('#park-info').show();
-          parkInfoView.handleBack();
-          parkInfoView.handleDirections();
           page('/park/'+a.id);
-
         });
-
-        // markerSport.addListener('click', function() {
-        //   $('.tab-content').hide();
-        //   $('#park-info').empty();
-        //   $('#park-info').append(parkView.toHtml(a, '#park-template'));
-        //   $('#park-info').show();
-        //   parkInfoView.handleBack();
-        // });
       });
     }
   });
@@ -85,6 +56,7 @@
     $('.tab-content').hide();
     $('#park-info').html(parkView.toHtml(parks[0], '#park-template'));
     $('#park-info').show();
+    parkInfoView.handleDirections();
   };
 
   parkInfoView.deleteMarkers = function() {
