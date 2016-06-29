@@ -6,6 +6,36 @@
   padding: 0px;
 }
 
+.claire-photo {
+  background-image: url('/img/claire-pic_480.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.crystal-photo {
+  background-image: url('/img/crystal_480.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.steven-photo {
+  background-image: url('/img/steven_480.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.john-photo {
+  background-image: url('');
+  background-position: center;
+  background-size: cover;
+}
+
+.team-pic {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+}
+
 #user-form-container {
   position: absolute;
   top: 30%;
