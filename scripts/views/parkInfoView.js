@@ -3,23 +3,24 @@
   var parkInfoView = {};
   parkInfoView.markers = [];
 
-  // parkInfoView.handleBack = function() {
-  //   $('#back-link').on('click', function(){
-  //     $('.tab-content').hide();
-  //     $('#map').show();
-  //     $('#user-form-container').show();
-  //   });
-  // };
+  parkInfoView.handleDirections = function() {
+    console.log('directions!');
+
+    $('#directions-link').on('click', function(){
+      directionsMapInit(parkInfoView.displayDirections);
+    });
+  };
 
 
   ParkData.getAllSportsArray();
 
 
   $('#user-form-button').on('click', function() {
-    var userLocation = map.autocomplete.getPlace();
+    parkInfoView.userAddress = document.getElementById('user-location').value;
+    parkInfoView.userLocation = map.autocomplete.getPlace();
     map.userLatLng = {
-      lat: userLocation.geometry.location.lat(),
-      lng: userLocation.geometry.location.lng()
+      lat: parkInfoView.userLocation.geometry.location.lat(),
+      lng: parkInfoView.userLocation.geometry.location.lng()
     };
     if (typeof markerHome !== 'undefined') {
       markerHome.setMap(null);
@@ -44,16 +45,9 @@
         parkInfoView.markers.push(markerSport);
         markerSport.setIcon('img/' + a.feature + '.png');
         markerSport.addListener('click', function() {
+          parkInfoView.destination = new google.maps.LatLng(a.lng, a.lat);
           page('/park/'+a.id);
         });
-
-        // markerSport.addListener('click', function() {
-        //   $('.tab-content').hide();
-        //   $('#park-info').empty();
-        //   $('#park-info').append(parkView.toHtml(a, '#park-template'));
-        //   $('#park-info').show();
-        //   parkInfoView.handleBack();
-        // });
       });
     }
   });
@@ -62,6 +56,7 @@
     $('.tab-content').hide();
     $('#park-info').html(parkView.toHtml(parks[0], '#park-template'));
     $('#park-info').show();
+    parkInfoView.handleDirections();
   };
 
   parkInfoView.deleteMarkers = function() {
@@ -69,6 +64,28 @@
       parkInfoView.markers[i].setMap(null);
     }
     parkInfoView.markers = [];
+  };
+
+  parkInfoView.displayDirections = function(directionMap) {
+    var directionsService = new google.maps.DirectionsService;
+    directionsService.route({
+      origin: new google.maps.LatLng(map.userLatLng.lat, map.userLatLng.lng),
+      destination: parkInfoView.destination,
+      travelMode: google.maps.TravelMode.DRIVING
+    }, function(response, status){
+      if (status === google.maps.DirectionsStatus.OK){
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          map: directionsMap,
+          directions: response,
+          draggable: true,
+          polylineOptions: {
+            strokeColor: 'green'
+          }
+        });
+      } else {
+        window.alert('directions request failed due to ' + status);
+      }
+    });
   };
 
   module.parkInfoView = parkInfoView;

@@ -26,6 +26,8 @@
       <p>Address: {{address}}</p>
       <p>Lighting: {{lighting}}</p>
       <a href="/">Back to map</a>
+      <a id="directions-link">Directions</a>
+      <div id="direction-map"></div>
     </script>
   </head>
   <body>
@@ -55,6 +57,7 @@
       <!-- User form -->
       <section id="user-form-container" class="tab-content">
         <form class="form-inline">
+          <h1>Seattle Field Finder</h1>
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
           </div>
@@ -68,6 +71,7 @@
           </div>
 
         </form>
+
       </section>
       <!-- Park info page -->
       <section id="park-info" class="tab-content"></section>
