@@ -18,7 +18,6 @@
       $('.tab-content').hide();
       $('#map').show();
       parkInfoView.displayDirections();
-      console.log('clicked');
     });
   };
 
@@ -55,7 +54,7 @@
         parkInfoView.markers.push(markerSport);
         markerSport.setIcon('img/' + a.feature + '.png');
         markerSport.addListener('click', function() {
-          parkInfoView.destination = markerSport.position;
+          parkInfoView.destination = a.address;
           $('.tab-content').hide();
           $('#park-info').empty();
           $('#park-info').append(parkView.toHtml(a, '#park-template'));
@@ -77,13 +76,12 @@
 
   parkInfoView.displayDirections = function() {
     var directionsService = new google.maps.DirectionsService;
-    console.log(map.userLatLng.lat);
     directionsService.route({
-      origin: [map.userLatLng.lat, map.userLatLng.lng],
-      destination: [parkInfoView.destination.lat, parkInfoView.destination.lng],
+      origin: new google.maps.LatLng(map.userLatLng.lat, map.userLatLng.lng),
+      destination: parkInfoView.destination,
       travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status){
-      if (status === google.map.DirectionStatus.OK){
+      if (status === google.maps.DirectionsStatus.OK){
         var directionsDisplay = new google.maps.DirectionsRenderer({
           map: map,
           directions: response,
