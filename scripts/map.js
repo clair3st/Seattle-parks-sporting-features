@@ -2,25 +2,107 @@
 
   var stylesArray = [
     {
-      featureType: 'all',
-      stylers: [
-        { hue: '#00ffe6' },
-        { saturation: -20 }
+      'featureType': 'administrative',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'visibility': 'on'
+        },
+        {
+          'lightness': 33
+        }
       ]
     },
     {
-      featureType: 'road',
-      elementType: 'geometry',
-      stylers: [
-        { lightness: 100 },
-        { visibility: 'simplified' }
+      'featureType': 'landscape',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'color': '#f2e5d4'
+        }
       ]
     },
     {
-      featureType: 'road',
-      elementType: 'labels',
-      stylers: [
-        { visibility: 'off' }
+      'featureType': 'poi.park',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#c5dac6'
+        }
+      ]
+    },
+    {
+      'featureType': 'poi.park',
+      'elementType': 'labels',
+      'stylers': [
+        {
+          'visibility': 'on'
+        },
+        {
+          'lightness': 20
+        }
+      ]
+    },
+    {
+      'featureType': 'road',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'lightness': 20
+        }
+      ]
+    },
+    {
+      'featureType': 'road.highway',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#c5c6c6'
+        }
+      ]
+    },
+    {
+      'featureType': 'road.arterial',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#e4d7c6'
+        }
+      ]
+    },
+    {
+      'featureType': 'road.local',
+      'elementType': 'geometry',
+      'stylers': [
+        {
+          'color': '#fbfaf7'
+        }
+      ]
+    },
+    {
+      'featureType': 'water',
+      'elementType': 'all',
+      'stylers': [
+        {
+          'visibility': 'on'
+        },
+        {
+          'color': '#acbcc9'
+        }
+      ]
+    },
+    {
+      'featureType': 'transit',
+      'elementType': 'labels.text',
+      'stylers': [
+        {'visibility': 'off'}
+      ]
+    },
+    {
+      'featureType': 'transit.line',
+      'elementType': 'geometry',
+      'stylers': [
+        {'visibility': 'off'}
       ]
     }
   ];
@@ -38,10 +120,15 @@
   };
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  map.userLatLng = mapOptions.center;
 
   google.maps.event.addDomListener(window, 'load', function() {
     var input = document.getElementById('user-location');
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    map.autocomplete = new google.maps.places.Autocomplete(input);
+  });
+
+  google.maps.event.addDomListener(window, 'resize', function() {
+    map.setCenter(map.userLatLng);
   });
 
   module.map = map;

@@ -1,15 +1,15 @@
 (function(module){
   var parkView = {};
 
-  parkView.filterHtml= function (sport, scriptTemplateId) {
-    var template = Handlebars.compile($(scriptTemplateId).text());
+  parkView.toHtml = function (sport, scriptTemplateId) {
+    var template = Handlebars.compile($(scriptTemplateId).html());
     return template(sport);
   };
 
   parkView.renderIndexPage = function() {
     ParkData.allSportsArray.forEach(function(a) {
       if ($('#sport-filter option:contains("' + a.feature + '")').length === 0) {
-        $('#sport-filter').append(parkView.filterHtml(a, '#sports-filter-template'));
+        $('#sport-filter').append(parkView.toHtml(a, '#sports-filter-template'));
       }
     });
     console.log('append to filter');

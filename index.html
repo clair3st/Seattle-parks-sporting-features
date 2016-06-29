@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Seattle Field Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="img/fieldfinders-logo.png">
     <!-- Vendor css -->
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -18,6 +19,14 @@
     <script id="sports-filter-template" type="text/x-handlebars-template">
       <option value="{{feature}}">{{feature}}</option>
     </script>
+    <script id="park-template" type="text/x-handlebars-template">
+      <h1>{{name}}</h1>
+      <p>{{feature}}</p>
+      <p>Hours: {{hours}}</p>
+      <p>Address: {{address}}</p>
+      <p>Lighting: {{lighting}}</p>
+      <a id="back-link">Back to map</a>
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -30,7 +39,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">SFF</a>
+          <a class="navbar-brand" href="/"><img src="img/fieldfinders-logo.png" width="50" height="50"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -44,7 +53,7 @@
 
     <main class="container-fluid">
       <!-- User form -->
-      <div id="user-form-container">
+      <section id="user-form-container" class="tab-content">
         <form class="form-inline">
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
@@ -55,13 +64,19 @@
             </select>
           </div>
           <div class="form-group" id="user-form-submit">
-            <a type="submit" class="btn btn-primary">Search</a>
+            <a type="submit" class="btn btn-primary" id="user-form-button">Search</a>
           </div>
 
         </form>
-      </div>
+      </section>
+      <!-- Park info page -->
+      <section id="park-info" class="tab-content"></section>
+      <!-- About page -->
+      <section id="about-page" class="tab-content container">
+        <h2>Hello world!</h2>
+      </section>
       <!-- Google map div -->
-      <div id="map"></div>
+      <section id="map" class="tab-content"></section>
     </main>
 
     <!-- Vendor scripts -->
@@ -81,8 +96,11 @@
 
     <!-- View files: -->
     <script src="scripts/views/parksView.js"></script>
+    <script src="scripts/views/parkInfoView.js"></script>
 
     <!-- Controller files: -->
-    <!-- <script src="scripts/controllers/routes.js"></script> -->
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/aboutController.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
   </body>
 </html>
