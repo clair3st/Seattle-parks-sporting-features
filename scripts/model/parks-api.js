@@ -11,7 +11,7 @@
   }
   ParkData.allParks = [];
   ParkData.allSportsArray = [];
-
+  $('#user-form').hide();
   ParkData.createTable = function(next){
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS parks_database (' +
@@ -54,13 +54,13 @@
           data.forEach(function(item){
             var parkObject = new ParkData(item);
             parkObject.insertRecord();
+            ParkData.updateRecord();
           });
           webDB.execute('SELECT * FROM parks_database', function(rows){
             ParkData.allParks = rows.map(function(ele) {
               return new ParkData(ele);
             });
           });
-          ParkData.updateRecord();
         });
       }
     });
@@ -80,6 +80,8 @@
     ';',
     function(rows) {
       ParkData.allSportsArray = rows.map(function(ele) {
+        $('#ajax-spinner').fadeOut();
+        $('#user-form').fadeIn();
         return new ParkData(ele);
       });
       parkView.renderIndexPage();

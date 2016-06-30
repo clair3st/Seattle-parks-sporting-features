@@ -44,6 +44,10 @@
   padding: 1em 2em 3em 2em;
 }
 
+#user-form {
+  display: hidden;
+}
+
 #user-form .btn {
   width: 100%;
 }

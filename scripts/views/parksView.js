@@ -8,6 +8,9 @@
   };
 
   parkView.renderIndexPage = function() {
+    // $('#ajax-spinner').fadeOut();
+    // $('#user-form-container').fadeIn();
+
     ParkData.allSportsArray.forEach(function(a) {
       if ($('#sport-filter option:contains("' + a.feature + '")').length === 0) {
         $('#sport-filter').append(parkView.toHtml(a, '#sports-filter-template'));

@@ -18,3 +18,7 @@
 #park-info {
   margin-top: 1em;
 }
+
+#about-page {
+  display: none;
+}
