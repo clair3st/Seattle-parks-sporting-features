@@ -50,20 +50,20 @@
       parkView.markerOptions.push(markerSportOptions);
       parkView.counter(parkView.markerOptions);
     });
-    console.log('parkView.markerOptions', parkView.markerOptions);
     parkView.uniqMarkerOptions = parkView.removeDuplicates(parkView.markerOptions, 'address');
-    console.log(parkView.uniqMarkerOptions);
     parkView.uniqMarkerOptions.forEach(function(a){
       var markerSport = new google.maps.Marker(a);
       parkView.markers.push(markerSport);
       markerSport.addListener('click', function() {
-        parkView.destination = new google.maps.LatLng(a.lng, a.lat);
+        parkView.destination = new google.maps.LatLng(a.position.lng, a.position.lat);
+        console.log(a.position.lng, a.position.lat);
         parkView.selectedMarker = this;
         page('/park/'+a.id);
       });
     });
 
   };
+
   parkView.removeDuplicates = function (arr, prop) {
     var new_arr = [];
     var lookup  = {};
