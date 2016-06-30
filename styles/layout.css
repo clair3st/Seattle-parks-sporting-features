@@ -11,32 +11,34 @@
 }
 
 #direction-map {
-  margin: 2em 0;
+  margin: 2.5em;
   padding: 25% 0;
 }
 
 #park-info {
   margin-top: 1em;
-  font-family: 'Judson', serif;
 }
 
 #park-info h2 {
-  font-family: 'Quando', serif;
+  font-family: 'Sansita One', cursive;
 }
 
 #about-page {
+  margin-left: -15px;
+  margin-left: -15px;
   padding: 1em;
   background-image:
   linear-gradient(rgba(0, 0, 0, 0.3),
      rgba(0, 0, 0, 0.3)), url('/img/soccer_wallpapers_for_desktop_wallpapers-1600x1000.jpg');
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed;  
 }
 
 #about-app, #about-us {
   background-color: rgba(255, 255, 255, 0.8);
-  max-width: 75%;
+  max-width: 85%;
   margin: auto;
   padding: 1.5em;
 }
@@ -47,12 +49,11 @@
 }
 
 #about-page p {
-  font-family: 'Judson', serif;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 #about-page h1, #about-page h2 {
-  font-family: 'Quando', serif;
+  font-family: 'Sansita One', cursive;
 }
 
 #about-page {

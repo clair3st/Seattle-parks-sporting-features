@@ -115,36 +115,7 @@
     );
   };
 
-  // ParkData.allSports = function() {
-  //   return ParkData.allSportsArray.map(function(obj) {
-  //     return obj.feature;
-  //
-  //   })
-  //   .reduce(function(uniqueSports, sport) {
-  //     if (uniqueSports.indexOf(sport) === -1) {
-  //       uniqueSports.push(sport);
-  //     }
-  //     return ParkData.uniqueSports = uniqueSports;
-  //
-  //   }, []);
-  // };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ParkData.createTable();
-
-
 
   module.ParkData = ParkData;
 })(window);
