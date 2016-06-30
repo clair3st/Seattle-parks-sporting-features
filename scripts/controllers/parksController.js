@@ -2,7 +2,14 @@
   var parksController = {};
 
   parksController.index = function(ctx, next) {
-    parkInfoView.index(ctx.parks);
+    parksController.showInfoPage(ctx.parks);
+  };
+
+  parksController.showInfoPage = function(parks) {
+    $('.tab-content').hide();
+    $('#park-info').html(parkView.toHtml(parks[0], '#park-template'));
+    $('#park-info').show();
+    parkInfoView.handleDirections();
   };
 
   parksController.loadById = function(ctx, next) {
