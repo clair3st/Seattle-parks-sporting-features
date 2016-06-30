@@ -1,6 +1,8 @@
 (function(module){
   var parkView = {};
   parkView.markers = [];
+  parkView.uniqMarkerOptions = [];
+  parkView.markerOptions = [];
 
   parkView.toHtml = function (sport, scriptTemplateId) {
     var template = Handlebars.compile($(scriptTemplateId).html());
@@ -16,28 +18,66 @@
   };
 
   parkView.deleteMarkers = function() {
+    parkView.uniqMarkerOptions = [];
+    parkView.markerOptions = [];
     for (var i = 0; i < parkView.markers.length; i++) {
       parkView.markers[i].setMap(null);
     }
     parkView.markers = [];
+
+  };
+
+  parkView.counter = function(array) {
+    counts = {};
+    array.forEach(function(a){
+      return counts[a.address] = (counts[a.address] || 0) + 1;
+    });
+    array.forEach(function(a){
+      a.addressCount = counts[a.address];
+    });
   };
 
   parkView.makeMarkers = function() {
-    ParkData.allSportsArray.filter(function(a){
+    ParkData.allSportsArray.filter(function(a) {
       return a.feature === $('#sport-filter').val();
-    }).forEach(function(a) {
-      markerSport = new google.maps.Marker({
+    }).forEach(function(a, index) {
+      markerSportOptions = {
         position: {lat: a.lng, lng: a.lat},
-        map: map
-      });
+        map: map,
+        address: a.address,
+        icon: 'img/' + a.feature + '.png',
+        id: a.id
+      };
+      parkView.markerOptions.push(markerSportOptions);
+      parkView.counter(parkView.markerOptions);
+    });
+    parkView.uniqMarkerOptions = parkView.removeDuplicates(parkView.markerOptions, 'address');
+    parkView.uniqMarkerOptions.forEach(function(a){
+      var markerSport = new google.maps.Marker(a);
       parkView.markers.push(markerSport);
-      markerSport.setIcon('img/' + a.feature + '.png');
       markerSport.addListener('click', function() {
-        parkView.destination = new google.maps.LatLng(a.lng, a.lat);
+        parkView.destination = new google.maps.LatLng(a.position.lat, a.position.lng);
+        console.log(a.position.lng, a.position.lat);
+        parkView.selectedMarker = this;
+        console.log(a , 'a');
         page('/park/'+a.id);
       });
     });
+
   };
+
+  parkView.removeDuplicates = function (arr, prop) {
+    var new_arr = [];
+    var lookup  = {};
+    for (var i in arr) {
+      lookup[arr[i][prop]] = arr[i];
+    }
+    for (i in lookup) {
+      new_arr.push(lookup[i]);
+    }
+    return new_arr;
+  };
+
 
   parkView.makeHomeMarker = function() {
     var userLocation = map.autocomplete.getPlace();

@@ -10,6 +10,8 @@
 
   parkInfoView.displayDirections = function(directionMap) {
     var directionsService = new google.maps.DirectionsService;
+    console.log(parkView.destination);
+    console.log(map.userLatLng.lat, map.userLatLng.lng);
     directionsService.route({
       origin: new google.maps.LatLng(map.userLatLng.lat, map.userLatLng.lng),
       destination: parkView.destination,
