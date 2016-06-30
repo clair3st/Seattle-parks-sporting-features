@@ -12,6 +12,7 @@
   };
 
   $('#user-form-button').on('click', function() {
+    page('/');
     $('#user-form').detach().appendTo($('#js-bootstrap-offcanvas'));
     $('#user-form-container').detach();
     parkInfoView.userAddress = document.getElementById('user-location').value;
