@@ -8,6 +8,7 @@
     <!-- Vendor css -->
     <link rel="stylesheet" href="/vendor/styles/normalize.css">
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.offcanvas.min.css">
 
     <!-- Custom css -->
     <link rel="stylesheet" href="/styles/map.css">
@@ -35,16 +36,18 @@
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <a type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <a type="button" class="navbar-toggle offcanvas-toggle" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+            <span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </span>
+        </a>
           <a class="navbar-brand" href="/"><img src="/img/fieldfinders-logo.png" width="50" height="50"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="navbar-offcanvas navbar-offcanvas-touch navbar-offcanvas-right" id="js-bootstrap-offcanvas">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
@@ -53,11 +56,11 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    <main class="container-fluid">
+    <main id="content" class="container-fluid">
       <!-- User form -->
       <section id="user-form-container" class="tab-content">
-        <form class="form-inline">
-          <h1>Seattle Field Finder</h1>
+        <h1>Seattle Field Finder</h1>
+        <form class="form-inline" id="user-form">
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
           </div>
@@ -67,7 +70,7 @@
             </select>
           </div>
           <div class="form-group" id="user-form-submit">
-            <a type="submit" class="btn btn-primary" id="user-form-button">Search</a>
+            <a class="btn btn-primary" id="user-form-button">Search</a>
           </div>
 
         </form>
@@ -86,6 +89,7 @@
     <!-- Vendor scripts -->
     <script src="/vendor/scripts/jquery-2.2.4.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.offcanvas.min.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/html5sql.js"></script>
     <script src="/vendor/scripts/webdb.js"></script>
@@ -95,10 +99,12 @@
     <!-- Custom script -->
     <script src="/scripts/map.js"></script>
 
+
     <!-- Model files: -->
     <script src="/scripts/model/parks-api.js"></script>
 
     <!-- View files: -->
+    <script src="/scripts/views/navbarView.js"></script>
     <script src="/scripts/views/parksView.js"></script>
     <script src="/scripts/views/parkInfoView.js"></script>
 
