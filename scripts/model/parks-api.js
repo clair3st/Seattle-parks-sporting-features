@@ -12,7 +12,7 @@
   ParkData.allParks = [];
   ParkData.allSportsArray = [];
 
-  ParkData.createTable = function(){
+  ParkData.createTable = function(next){
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS parks_database (' +
         'id INTEGER PRIMARY KEY, ' +
@@ -25,6 +25,7 @@
         'lighting BOOLEAN);',
         function() {
           console.log('successfully set up parks database table');
+          ParkData.requestData();
         }
     );
   };
@@ -46,6 +47,7 @@
         ParkData.allParks = rows.map(function(ele) {
           return new ParkData(ele);
         });
+        ParkData.updateRecord();
       } else {
         $.get('https://data.seattle.gov/resource/64yg-jvpt.json?$$app_token=TDroSLKHRDeFPJQ6CoJrXbMwJ&$limit=2000')
         .done(function(data){
@@ -58,6 +60,7 @@
               return new ParkData(ele);
             });
           });
+          ParkData.updateRecord();
         });
       }
     });
@@ -88,10 +91,25 @@
   };
 
   ParkData.updateRecord = function() {
-    webDB.execute('UPDATE parks_database SET address = "9220 14th Ave NW", lat = -122.3740796, lng = 47.6966073 WHERE name = "Crown Hill Park"');
-    webDB.execute('UPDATE parks_database SET hours = "4 a.m. - 11:30 p.m." WHERE name = "Discovery Park"');
-    webDB.execute('UPDATE parks_database SET feature = "Softball and Baseball" WHERE feature = "Baseball/Softball"');
+    webDB.execute('UPDATE parks_database SET address = "9220 14th Ave NW", lat = -122.3740796, lng = 47.6966073 WHERE name = "Crown Hill Park"', function(){
+      webDB.execute('UPDATE parks_database SET hours = "4 a.m. - 11:30 p.m." WHERE name = "Discovery Park"', function() {
+        webDB.execute('UPDATE parks_database SET feature = "Softball and Baseball" WHERE feature = "Baseball/Softball"', function(){
+          ParkData.getAllSportsArray();
+        });
+      });
+    });
+  };
 
+  ParkData.findWhere = function(field, value, callback) {
+    webDB.execute(
+      [
+        {
+          sql: 'SELECT * FROM parks_database WHERE ' + field + ' = ?;',
+          data: [value]
+        }
+      ],
+      callback
+    );
   };
 
   // ParkData.allSports = function() {
@@ -121,7 +139,7 @@
 
 
 
-
+  ParkData.createTable();
 
 
 
