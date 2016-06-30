@@ -54,3 +54,7 @@
 #about-page h1, #about-page h2 {
   font-family: 'Quando', serif;
 }
+
+#about-page {
+  display: none;
+}
