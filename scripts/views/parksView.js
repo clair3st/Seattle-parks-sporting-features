@@ -10,9 +10,6 @@
   };
 
   parkView.renderIndexPage = function() {
-    // $('#ajax-spinner').fadeOut();
-    // $('#user-form-container').fadeIn();
-
     ParkData.allSportsArray.forEach(function(a) {
       if ($('#sport-filter option:contains("' + a.feature + '")').length === 0) {
         $('#sport-filter').append(parkView.toHtml(a, '#sports-filter-template'));
@@ -61,9 +58,7 @@
       parkView.markers.push(markerSport);
       markerSport.addListener('click', function() {
         parkView.destination = new google.maps.LatLng(a.position.lat, a.position.lng);
-        console.log(a.position.lng, a.position.lat);
         parkView.selectedMarker = this;
-        console.log(a , 'a');
         page('/park/'+a.id);
       });
     });

@@ -10,8 +10,6 @@
 
   parkInfoView.displayDirections = function(directionMap) {
     var directionsService = new google.maps.DirectionsService;
-    console.log(parkView.destination);
-    console.log(map.userLatLng.lat, map.userLatLng.lng);
     directionsService.route({
       origin: new google.maps.LatLng(map.userLatLng.lat, map.userLatLng.lng),
       destination: parkView.destination,
@@ -34,30 +32,6 @@
         sweetAlert('Oops...', 'Can\'t get start point, ' + status, 'error');
       }
     });
-  };
-
-//yet to be called, possibly could use later.
-  parkInfoView.distanceToTravel = function(){
-    var distanceMatrixService = new google.maps.DistanceMatrixService;
-    var destinations = [];
-    for (var i = 0; i < parkView.markers.length; i++) {
-      destinations.push(parkView.markers[i].position);
-    }
-    var origin = new google.maps.LatLng(map.userLatLng.lat, map.userLatLng.lng);
-    distanceMatrixService.getDistanceMatrix({
-      origins: [origin],
-      destinations: destinations,
-      travelMode: google.maps.TravelMode.DRIVING,
-      unitSystem: google.maps.UnitSystem.IMPERIAL,
-    },
-    function(response, status) {
-      if (status !== google.maps.DistanceMatrixStatus.OK) {
-        window.alert('Error was: ' + status);
-      } else {
-        parkInfoView.distances = response;
-        console.log(response);
-      }
-    });;
   };
 
   module.parkInfoView = parkInfoView;
