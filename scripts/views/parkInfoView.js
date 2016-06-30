@@ -11,8 +11,9 @@
     });
   };
 
-
   $('#user-form-button').on('click', function() {
+    $('#user-form').detach().appendTo($('#js-bootstrap-offcanvas'));
+    $('#user-form-container').detach();
     parkInfoView.userAddress = document.getElementById('user-location').value;
     parkInfoView.userLocation = map.autocomplete.getPlace();
     map.userLatLng = {
