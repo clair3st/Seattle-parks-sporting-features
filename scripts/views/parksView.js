@@ -28,7 +28,8 @@
     }).forEach(function(a) {
       markerSport = new google.maps.Marker({
         position: {lat: a.lng, lng: a.lat},
-        map: map
+        map: map,
+        animation: google.maps.Animation.DROP
       });
       parkView.markers.push(markerSport);
       markerSport.setIcon('img/' + a.feature + '.png');
@@ -40,11 +41,27 @@
   };
 
   parkView.makeHomeMarker = function() {
-    var userLocation = map.autocomplete.getPlace();
-    map.userLatLng = {
-      lat: userLocation.geometry.location.lat(),
-      lng: userLocation.geometry.location.lng()
-    };
+    if (!map.autocomplete.getPlace()) {
+      navigator.geolocation.getCurrentPosition(function(location) {
+        map.userLatLng = {
+          lat: location.coords.latitude,
+          lng: location.coords.longitude
+        };
+      }, function(e) {
+        map.userLatLng = {
+          lat: 47.6062,
+          lng: -122.3321
+        };
+        sweetAlert('Can\'t detect browser location', 'User location is defaulted to Seattle', 'warning');
+      });
+    } else {
+      map.userLocation = map.autocomplete.getPlace();
+      map.userLatLng = {
+        lat: map.userLocation.geometry.location.lat(),
+        lng: map.userLocation.geometry.location.lng()
+      };
+    }
+
     if (typeof markerHome !== 'undefined') {
       markerHome.setMap(null);
     }
@@ -58,18 +75,20 @@
 
 //event listener for the main search button
   $('#user-form-button').on('click', function() {
-    $('#user-form').detach().appendTo($('#js-bootstrap-offcanvas'));
-    $('#user-form-container').detach();
     var userAddress = document.getElementById('user-location').value;
     if (userAddress === '') {
-      window.alert('You must enter an address.');
+      sweetAlert('Oops...', 'User location not found!', 'error');
     } else {
       parkView.makeHomeMarker();
+      page('/');
+      $('#user-form').detach().appendTo($('#js-bootstrap-offcanvas'));
+      $('#user-form-container').detach();
     }
     if($('#sport-filter').val()) {
       parkView.deleteMarkers();
       parkView.makeMarkers();
     }
+    return false;
   });
 
   module.parkView = parkView;

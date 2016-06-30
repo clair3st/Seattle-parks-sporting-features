@@ -2,7 +2,11 @@
   navbarView = {};
 
   navbarView.handleMenuClick = function() {
-    $('.navbar .navbar-offcanvas').on('click', 'a', function() {
+    $('.navbar-offcanvas').on('click', 'a', function() {
+      $('#js-bootstrap-offcanvas').trigger('offcanvas.close');
+    });
+
+    $('#user-form-button').on('click', function() {
       $('#js-bootstrap-offcanvas').trigger('offcanvas.close');
     });
   };
