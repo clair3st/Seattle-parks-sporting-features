@@ -54,19 +54,22 @@
           data.forEach(function(item){
             var parkObject = new ParkData(item);
             parkObject.insertRecord();
-            ParkData.updateRecord();
           });
           webDB.execute('SELECT * FROM parks_database', function(rows){
             ParkData.allParks = rows.map(function(ele) {
               return new ParkData(ele);
             });
           });
+          ParkData.updateRecord();
         });
       }
     });
   };
 
   ParkData.getAllSportsArray = function() {
+    $('#ajax-spinner').fadeOut();
+    $('#user-form').fadeIn();
+
     webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" ' +
     'OR feature LIKE "cricket" ' +
     'OR feature LIKE "disc%" ' +
@@ -80,8 +83,6 @@
     ';',
     function(rows) {
       ParkData.allSportsArray = rows.map(function(ele) {
-        $('#ajax-spinner').fadeOut();
-        $('#user-form').fadeIn();
         return new ParkData(ele);
       });
       parkView.renderIndexPage();
