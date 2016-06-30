@@ -11,8 +11,6 @@
     });
   };
 
-  ParkData.getAllSportsArray();
-
   $('#user-form-button').on('click', function() {
     $('#user-form').detach().appendTo($('#js-bootstrap-offcanvas'));
     $('#user-form-container').detach();
