@@ -5,6 +5,7 @@
     $('.tab-content').hide();
     $('#user-form-container').fadeIn();
     $('#map').fadeIn();
+    navbarView.highlightTab('home');
     google.maps.event.trigger(map, 'resize');
     map.setCenter(map.userLatLng);
 
