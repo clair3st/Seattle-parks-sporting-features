@@ -32,6 +32,10 @@
   border-radius: 50%;
 }
 
+#about-us {
+  margin-top: 1em;
+}
+
 #user-form-container {
   position: absolute;
   top: 30%;
@@ -47,6 +51,11 @@
 
 #user-form-container h2 {
   font-weight: bold;
+}
+
+#user-form-container h2 {
+  color: #fff;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
 }
 
 #user-form .btn {
@@ -84,14 +93,42 @@
   color: #ffffff;
 }
 
+.navbar-default .navbar-nav>li .active {
+  padding-bottom: 10px;
+}
+
+#lighting .FALSE {
+  background-image: url('/img/icon-false.png');
+  padding: 0 10px;
+  margin-left: 0.5em;
+  background-repeat: no-repeat;
+}
+
+#lighting .TRUE {
+  background-image: url('/img/icon-true.png');
+  padding: 0 10px;
+  margin-left: 0.5em;
+  background-repeat: no-repeat;
+}
+
+#directions-link {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-default .navbar-nav>li .active {
+    border-left: 5px solid #86d694;
+    background-color: #fff;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .navbar-default .navbar-nav>li .active {
-    padding-bottom: 10px;
-    border-bottom: 6px solid rgba(125, 202, 92, 1)
+    border-bottom: 6px solid #86d694;
   }
 
   .navbar #user-form {
-    padding: 0.5em 7em;
+    padding: 0.6em 7em;
   }
 
   #user-form #user-location-container {
