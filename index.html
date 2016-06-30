@@ -7,11 +7,15 @@
     <link rel="icon" type="image/x-icon" href="/img/fieldfinders-logo.png">
     <!-- Vendor css -->
     <link rel="stylesheet" href="/vendor/styles/normalize.css">
+    <link rel="stylesheet" href="/vendor/styles/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.offcanvas.min.css">
+    <link rel="stylesheet" href="/vendor/styles/animate.min.css">
+    <link rel="stylesheet" href="/vendor/styles/sweetalert.css">
+    <link href='https://fonts.googleapis.com/css?family=Quando|Judson|Reem+Kufi' rel='stylesheet' type='text/css'>
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="/styles/map.css">
+    <!-- <link rel="stylesheet" href="/styles/map.css"> -->
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
@@ -21,14 +25,22 @@
       <option value="{{feature}}">{{feature}}</option>
     </script>
     <script id="park-template" type="text/x-handlebars-template">
-      <h1>{{name}}</h1>
-      <p>{{feature}}</p>
-      <p>Hours: {{hours}}</p>
-      <p>Address: {{address}}</p>
-      <p>Lighting: {{lighting}}</p>
-      <a href="/">Back to map</a>
-      <a id="directions-link">Directions</a>
-      <div id="direction-map"></div>
+      <div class="row">
+        <div class="col-md-5">
+          <a href="/" class="back-btn">&larr;</a>
+          <h2>{{name}}</h2>
+          <p>{{feature}}</p>
+          <p>Hours: {{hours}}</p>
+          <p>Address: {{address}}</p>
+          <p id ="feature-count"></p>
+          <p id="lighting">Lighting: <i class="FALSE" aria-hidden="true"></i>
+</p>
+          <a id="directions-link">Get Driving Directions</a>
+        </div>
+        <div class="col-md-7">
+          <div id="direction-map"></div>
+        </div>
+      </div>
     </script>
   </head>
   <body>
@@ -49,8 +61,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-offcanvas navbar-offcanvas-touch navbar-offcanvas-right" id="js-bootstrap-offcanvas">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/" data-page="home">Home</a></li>
+            <li><a href="/about" data-page="about">About</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -58,14 +70,18 @@
 
     <main id="content" class="container-fluid">
       <!-- User form -->
-      <section id="user-form-container" class="tab-content">
-        <h1>Seattle Field Finder</h1>
+      <section id="user-form-container" class="tab-content animated flipInX">
+        <h2>Seattle Field Finder</h2>
+        <section id="ajax-spinner">
+          <img src="/img/ajax-soccer-spinner.gif">
+          <h2>Retrieving park information...</h2>
+        </section>
         <form class="form-inline" id="user-form">
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
           </div>
           <div class="form-group" id="activity-picker-container">
-            <select id="sport-filter" class="activity-picker form-control">
+            <select id="sport-filter" class="form-control">
               <option>-- Select your Sport --</option>
             </select>
           </div>
@@ -77,11 +93,44 @@
 
       </section>
       <!-- Park info page -->
-      <section id="park-info" class="tab-content"></section>
+      <section id="park-info" class="tab-content container"></section>
       <!-- About page -->
       <section id="about-page" class="tab-content container">
-        <h2>Hello world!</h2>
+        <div class="row" id="about-app">
+          <div class="col-sm-12">
+            <h2>About the App</h2>
+              <p>Have you ever planned to play sport with friends and not known where your nearest field was? Or how about trying to find any sporting field when you move to a new city? Field Finders uses the most up to date data from the City of Seattle to connect you to your sporting field of choice.</p>
+  <p>Up for a swim? Want to play basketball? Have you ever even heard of Pickleball? Seattle Field Finder will connect you to a huge range of different city run sporting facilities located all round the city. Start searching and get out onto the field</p>
+          </div>
+        </div>
+
+        <div class="row" id="about-us">
+          <h2>About the Developers</h2>
+          <div class="col-md-6">
+            <h2>Claire Gatenby</h2>
+              <div class="claire-photo team-pic"></div>
+                <p>I am a born and bred Australian who made the wild decision to quit my job and move to Seattle where I am learning how to code. I dream of using my past life as a scientist and my new skills as a developer to move into bioinformatics. I loves cats, staying active, travelling, the outdoors and taking photos.</p>
+          </div>
+          <div class="col-md-6">
+            <h2>Crystal Lessor</h2>
+              <div class="crystal-photo team-pic"></div>
+                <p>I'm Crystal! My cousin recommended Codefellows to me in 2015, so I took the foundations 1 course while living in Bellingham. I loved it so much, I decided to move a little closer, and continue my coding education. When I'm not coding, I enjoy reading, painting, camping, good conversation, and going on roadtrips.</p>
+          </div>
+
+          <div class="col-md-6">
+            <h2>Steven Than</h2>
+              <div class="steven-photo team-pic"></div>
+                <p>I was a former software developer for a small start-up in Tukwila, WA, and am currently a Code Fellows student at Seattle campus. I am passionate about programming and learning in general. I have developed various type of application from mobile to web to desktop applications. My plan is to go back to college for more graduate study and data science and build something revolutionary. Visit me at thanst.com or reach out via email at steven@thanst.com.</p>
+          </div>
+
+          <div class="col-md-6">
+            <h2>John Gaines</h2>
+              <div class="john-photo team-pic"></div>
+                <p>I was born and raised in Chicago, Il.  After many years at sea I decided to make a career shift into tech which has held my interest for many years.  Through Code Fellows I am now on a path very foriegn from any path I have walked before.</p>
+          </div>
+        </div>
       </section>
+
       <!-- Google map div -->
       <section id="map" class="tab-content"></section>
     </main>
@@ -95,6 +144,7 @@
     <script src="/vendor/scripts/webdb.js"></script>
     <script src="/vendor/scripts/page.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8cNW24nX2mt8NfGMo9k1fj34dKy0IwRg&v=3.exp&libraries=places"></script>
+    <script src="/vendor/scripts/sweetalert.min.js"></script>
 
     <!-- Custom script -->
     <script src="/scripts/map.js"></script>
