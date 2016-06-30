@@ -1,3 +1,7 @@
+.navbar {
+  margin-bottom: 0;
+}
+
 #map {
   height: 93vh;
   border: 1px;
@@ -7,6 +11,10 @@
 }
 
 #direction-map {
-  margin: 10%;
+  margin: 2em 0;
   padding: 25% 0;
+}
+
+#park-info {
+  margin-top: 1em;
 }
