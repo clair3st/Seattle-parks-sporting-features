@@ -45,7 +45,8 @@
         position: {lat: a.lng, lng: a.lat},
         map: map,
         address: a.address,
-        icon: 'img/' + a.feature + '.png'
+        icon: 'img/' + a.feature + '.png',
+        id: a.id
       };
       parkView.markerOptions.push(markerSportOptions);
       parkView.counter(parkView.markerOptions);
@@ -58,6 +59,7 @@
         parkView.destination = new google.maps.LatLng(a.position.lat, a.position.lng);
         console.log(a.position.lng, a.position.lat);
         parkView.selectedMarker = this;
+        console.log(a , 'a');
         page('/park/'+a.id);
       });
     });
@@ -65,15 +67,15 @@
   };
 
   parkView.removeDuplicates = function (arr, prop) {
-    var newArr = [];
+    var new_arr = [];
     var lookup  = {};
     for (var i in arr) {
       lookup[arr[i][prop]] = arr[i];
     }
     for (i in lookup) {
-      newArr.push(lookup[i]);
+      new_arr.push(lookup[i]);
     }
-    return newArr;
+    return new_arr;
   };
 
 
