@@ -12,9 +12,6 @@
   };
 
 
-  ParkData.getAllSportsArray();
-
-
   $('#user-form-button').on('click', function() {
     parkInfoView.userAddress = document.getElementById('user-location').value;
     parkInfoView.userLocation = map.autocomplete.getPlace();
