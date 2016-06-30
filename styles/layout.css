@@ -34,7 +34,7 @@
   background-attachment: fixed;
 }
 
-#aboutApp, #aboutUs {
+#about-app, #about-us {
   background-color: rgba(255, 255, 255, 0.8);
   max-width: 75%;
   margin: auto;
