@@ -17,4 +17,40 @@
 
 #park-info {
   margin-top: 1em;
+  font-family: 'Judson', serif;
+}
+
+#park-info h2 {
+  font-family: 'Quando', serif;
+}
+
+#about-page {
+  padding: 1em;
+  background-image:
+  linear-gradient(rgba(0, 0, 0, 0.3),
+     rgba(0, 0, 0, 0.3)), url('/img/soccer_wallpapers_for_desktop_wallpapers-1600x1000.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#aboutApp, #aboutUs {
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 75%;
+  margin: auto;
+  padding: 1.5em;
+}
+
+#about-page h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#about-page p {
+  font-family: 'Judson', serif;
+  font-size: 1.5em;
+}
+
+#about-page h1, #about-page h2 {
+  font-family: 'Quando', serif;
 }
