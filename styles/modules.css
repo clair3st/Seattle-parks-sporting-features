@@ -92,10 +92,22 @@
   padding-bottom: 10px;
 }
 
-#park-info #lighting .FALSE {
-  background-image: '/img/icon-true.png';
-  background-position: center;
-  background-size: cover;
+#lighting .FALSE {
+  background-image: url('/img/icon-false.png');
+  padding: 0 10px;
+  margin-left: 0.5em;
+  background-repeat: no-repeat;
+}
+
+#lighting .TRUE {
+  background-image: url('/img/icon-true.png');
+  padding: 0 10px;
+  margin-left: 0.5em;
+  background-repeat: no-repeat;
+}
+
+#directions-link {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 767px) {

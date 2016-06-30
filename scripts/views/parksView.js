@@ -46,7 +46,8 @@
         map: map,
         address: a.address,
         icon: 'img/' + a.feature + '.png',
-        id: a.id
+        id: a.id,
+        animation: google.maps.Animation.DROP
       };
       parkView.markerOptions.push(markerSportOptions);
       parkView.counter(parkView.markerOptions);
