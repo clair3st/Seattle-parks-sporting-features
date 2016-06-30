@@ -30,6 +30,7 @@
   width: 5em;
   height: 5em;
   border-radius: 50%;
+  display: inline-block;
 }
 
 #about-us {
@@ -46,11 +47,10 @@
   background: rgba(134, 214, 148, 0.7);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   padding: 1em 2em 3em 2em;
-  font-family: 'Reem Kufi', sans-serif;
 }
 
 #user-form-container h2 {
-  font-weight: bold;
+  display: inline-block;
 }
 
 #user-form-container h2 {
@@ -82,13 +82,13 @@
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;
-  background: #86D694;
+  background: #337ab7;
   padding: 0.1em 0.5em 0.2em 0.5em;
   text-decoration: none;
 }
 
 .back-btn:hover {
-  background: #47c55d;
+  background: #2e6da4;
   text-decoration: none;
   color: #ffffff;
 }
@@ -113,6 +113,28 @@
 
 #directions-link {
   cursor: pointer;
+}
+
+.info {
+  background: rgba(134, 214, 148, 0.7);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  padding: 1.5em;
+  margin: 1em;
+}
+
+.info p {
+  font-size: 1.5em;
+}
+
+.info h2 {
+  color: #fff;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
+}
+
+#ajax-spinner p {
+  margin-top: 0.5em;
+  font-size: 1.5em;
+
 }
 
 @media only screen and (max-width: 767px) {
