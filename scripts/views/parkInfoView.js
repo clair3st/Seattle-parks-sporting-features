@@ -31,7 +31,7 @@
         infoWindow.setPosition(response.routes[0].legs[0].end_location);
         infoWindow.open(directionsMap);
       } else {
-        sweetAlert('Oops...', 'Can\'t get diretion due to ' + status, 'error');
+        sweetAlert('Oops...', 'Can\'t get start point, ' + status, 'error');
       }
     });
   };
