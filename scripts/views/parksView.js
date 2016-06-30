@@ -55,7 +55,7 @@
       var markerSport = new google.maps.Marker(a);
       parkView.markers.push(markerSport);
       markerSport.addListener('click', function() {
-        parkView.destination = new google.maps.LatLng(a.position.lng, a.position.lat);
+        parkView.destination = new google.maps.LatLng(a.position.lat, a.position.lng);
         console.log(a.position.lng, a.position.lat);
         parkView.selectedMarker = this;
         page('/park/'+a.id);
