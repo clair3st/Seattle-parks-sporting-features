@@ -7,10 +7,12 @@
     <link rel="icon" type="image/x-icon" href="/img/fieldfinders-logo.png">
     <!-- Vendor css -->
     <link rel="stylesheet" href="/vendor/styles/normalize.css">
+    <link rel="stylesheet" href="/vendor/styles/animate.min.css">
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.offcanvas.min.css">
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="/styles/map.css">
+    <!-- <link rel="stylesheet" href="/styles/map.css"> -->
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
@@ -20,14 +22,20 @@
       <option value="{{feature}}">{{feature}}</option>
     </script>
     <script id="park-template" type="text/x-handlebars-template">
-      <h1>{{name}}</h1>
-      <p>{{feature}}</p>
-      <p>Hours: {{hours}}</p>
-      <p>Address: {{address}}</p>
-      <p>Lighting: {{lighting}}</p>
-      <a href="/">Back to map</a>
-      <a id="directions-link">Directions</a>
-      <div id="direction-map"></div>
+      <div class="row">
+        <div class="col-md-5">
+          <a href="/" class="back-btn">&larr;</a>
+          <h2>{{name}}</h2>
+          <p>{{feature}}</p>
+          <p>Hours: {{hours}}</p>
+          <p>Address: {{address}}</p>
+          <p>Lighting: {{lighting}}</p>
+          <a id="directions-link">Get Driving Directions</a>
+        </div>
+        <div class="col-md-7">
+          <div id="direction-map"></div>
+        </div>
+      </div>
     </script>
   </head>
   <body>
@@ -35,46 +43,48 @@
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <a type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <a type="button" class="navbar-toggle offcanvas-toggle" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="navbar-brand" href="/"><img src="img/fieldfinders-logo.png" width="50" height="50"></a>
+            <span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </span>
+        </a>
+          <a class="navbar-brand" href="/"><img src="/img/fieldfinders-logo.png" width="50" height="50"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="navbar-offcanvas navbar-offcanvas-touch navbar-offcanvas-right" id="js-bootstrap-offcanvas">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/" data-page="home">Home</a></li>
+            <li><a href="/about" data-page="about">About</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
-    <main class="container-fluid">
+    <main id="content" class="container-fluid">
       <!-- User form -->
-      <section id="user-form-container" class="tab-content">
-        <form class="form-inline">
-          <h1>Seattle Field Finder</h1>
+      <section id="user-form-container" class="tab-content animated flipInX">
+        <h2>Seattle Field Finder</h2>
+        <form class="form-inline" id="user-form">
           <div class="form-group" id="user-location-container">
             <input type="text" class="form-control" id="user-location" placeholder="Enter you location">
           </div>
           <div class="form-group" id="activity-picker-container">
-            <select id="sport-filter" class="activity-picker form-control">
+            <select id="sport-filter" class="form-control">
               <option>-- Select your Sport --</option>
             </select>
           </div>
           <div class="form-group" id="user-form-submit">
-            <a type="submit" class="btn btn-primary" id="user-form-button">Search</a>
+            <a class="btn btn-primary" id="user-form-button">Search</a>
           </div>
 
         </form>
 
       </section>
       <!-- Park info page -->
-      <section id="park-info" class="tab-content"></section>
+      <section id="park-info" class="tab-content container"></section>
       <!-- About page -->
       <section id="about-page" class="tab-content container">
         <section id="aboutApp">
@@ -115,6 +125,7 @@ Up for a swim? Want to play basketball? Have you ever even heard of Pickleball? 
     <!-- Vendor scripts -->
     <script src="/vendor/scripts/jquery-2.2.4.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.offcanvas.min.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/html5sql.js"></script>
     <script src="/vendor/scripts/webdb.js"></script>
@@ -124,10 +135,12 @@ Up for a swim? Want to play basketball? Have you ever even heard of Pickleball? 
     <!-- Custom script -->
     <script src="/scripts/map.js"></script>
 
+
     <!-- Model files: -->
     <script src="/scripts/model/parks-api.js"></script>
 
     <!-- View files: -->
+    <script src="/scripts/views/navbarView.js"></script>
     <script src="/scripts/views/parksView.js"></script>
     <script src="/scripts/views/parkInfoView.js"></script>
 
