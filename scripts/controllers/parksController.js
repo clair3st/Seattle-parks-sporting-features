@@ -9,7 +9,10 @@
     $('.tab-content').hide();
     $('#park-info').html(parkView.toHtml(parks[0], '#park-template'));
     $('#park-info').show();
-    $('#feature-count').html('The number of facilities for this sport at this location is ' + parkView.selectedMarker.addressCount + '.');
+    if (typeof parkView.selectedMarker !== 'undefined') {
+      $('#feature-count').html('The number of facilities for this sport at this location is ' + parkView.selectedMarker.addressCount + '.');
+    }
+    map.parkAddressMapInit(parks[0]);
     parkInfoView.handleDirections();
   };
 
