@@ -44,11 +44,11 @@ Build in only 4 days for the final project of Codefellows 301.
 
 ##Third Party Sources:
 
--Bootstrap
--Google Maps
--WebSQL
--Normalize
--JQuery and JQuery plugins
--Page.js
--Handlebars
--Data is from the City of Seattle
+- Bootstrap
+- Google Maps
+- WebSQL
+- Normalize
+- JQuery and JQuery plugins
+- Page.js
+- Handlebars
+- Data is from the City of Seattle
