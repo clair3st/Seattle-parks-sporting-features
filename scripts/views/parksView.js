@@ -121,6 +121,7 @@
       page('/');
       $('#user-form').detach().appendTo($('#js-bootstrap-offcanvas'));
       $('#user-form-container').detach();
+      map.setZoom(11);
     }
     if($('#sport-filter').val()) {
       parkView.deleteMarkers();

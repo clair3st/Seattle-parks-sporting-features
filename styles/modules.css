@@ -8,26 +8,18 @@
 
 .claire-photo {
   background-image: url('/img/claire-pic_480.jpg');
-  background-position: center;
-  background-size: cover;
 }
 
 .crystal-photo {
   background-image: url('/img/crystal_480.jpg');
-  background-position: center;
-  background-size: cover;
 }
 
 .steven-photo {
   background-image: url('/img/steven_480.jpg');
-  background-position: center;
-  background-size: cover;
 }
 
 .john-photo {
   background-image: url('/img/Jp_Gaines.jpg');
-  background-position: center;
-  background-size: cover;
 }
 
 .team-pic {
@@ -35,6 +27,8 @@
   height: 5em;
   border-radius: 50%;
   display: inline-block;
+  background-position: center;
+  background-size: cover;
 }
 
 #about-us {
@@ -79,10 +73,14 @@
   width: 100%;
 }
 
+.back-btn-container {
+  margin-bottom: 2em;
+}
+
 .back-btn {
   -webkit-border-radius: 2;
   -moz-border-radius: 2;
-  border-radius: 2px;
+  border-radius: 4px;
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;
@@ -122,8 +120,6 @@
 .info {
   background: rgba(134, 214, 148, 0.7);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  padding: 1.5em;
-  margin: 1em;
 }
 
 .info p {
@@ -135,10 +131,13 @@
   text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
 }
 
+.park-detail {
+  padding: 1.5em 1em 1em 3.5em;
+}
+
 #ajax-spinner p {
   margin-top: 0.5em;
   font-size: 1.5em;
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -163,6 +162,11 @@
 
   #user-form #activity-picker-container {
     width: 30%;
+  }
+
+  .navbar-brand {
+    padding-left: 0;
+    padding-right: 0.5em;
   }
 
 }
