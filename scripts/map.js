@@ -154,7 +154,6 @@
       }
     };
 
-    console.log(park);
     var parkAddressMap = new google.maps.Map(document.getElementById('direction-map'), parkMapOptions);
     var parkAddressMarker = new google.maps.Marker({
       position: parkMapOptions.center,

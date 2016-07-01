@@ -24,7 +24,6 @@
         'lng FLOAT NOT NULL, ' +
         'lighting BOOLEAN);',
         function() {
-          console.log('successfully set up parks database table');
           ParkData.requestData();
         }
     );
