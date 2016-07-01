@@ -2,9 +2,7 @@
 
 ##Code Fellows 301 Final Project: Field Finders
 
-![alt text](img/fieldfinders-logo.png)
-
-[Field Finders](http://field-finder.herokuapp.com/)
+![alt text](img/fieldfinders-logo.png) [Field Finders on Heroku](http://field-finder.herokuapp.com/)
 
 Have you ever planned to play sport with friends and not known where your nearest field was? Or how about trying to find any sporting field when you move to a new city? Field Finders uses the most up to date data from the City of Seattle to connect you to your sporting field of choice.
 
