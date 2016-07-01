@@ -1,3 +1,7 @@
+.navbar {
+  margin-bottom: 0;
+}
+
 #map {
   height: 93vh;
   border: 1px;
@@ -7,6 +11,50 @@
 }
 
 #direction-map {
-  margin: 10%;
+  margin: 2.5em;
   padding: 25% 0;
+}
+
+#park-info {
+  margin-top: 1em;
+}
+
+#park-info h2 {
+  font-family: 'Sansita One', cursive;
+}
+
+#about-page {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 1em;
+  background-image:
+  linear-gradient(rgba(0, 0, 0, 0.3),
+     rgba(0, 0, 0, 0.3)), url('/img/soccer_wallpapers_for_desktop_wallpapers-1600x1000.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#about-app, #about-us {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  padding: 1.5em;
+}
+
+#about-page h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#about-page p {
+  font-size: 1em;
+}
+
+#about-page h1, #about-page h2 {
+  font-family: 'Sansita One', cursive;
+}
+
+#about-page {
+  display: none;
 }

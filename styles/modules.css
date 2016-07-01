@@ -1,23 +1,44 @@
-.navbar {
-  margin-bottom: 0;
-}
-
 .navbar-brand {
   padding: 0 0.5em;
 }
 
-#toggle-panel {
-   position: absolute;
-   top: 10px;
-   right: 10em;
-   z-index: 5;
-   background-color: #f5c;
-   padding: 5px;
-   border: 1px solid #999;
-   text-align: center;
-   font-family: 'Roboto','sans-serif';
-   line-height: 30px;
-   padding-left: 10px;
+.developer-name {
+  display: inline-block;
+}
+
+.claire-photo {
+  background-image: url('/img/claire-pic_480.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.crystal-photo {
+  background-image: url('/img/crystal_480.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.steven-photo {
+  background-image: url('/img/steven_480.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.john-photo {
+  background-image: url('/img/Jp_Gaines.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.team-pic {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#about-us {
+  margin-top: 1em;
 }
 
 #user-form-container {
@@ -29,19 +50,28 @@
   z-index: 2;
   background: rgba(134, 214, 148, 0.7);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  padding: 3em;
+  padding: 1em 2em 3em 2em;
 }
 
-#user-form-container .btn {
+#user-form-container h2 {
+  display: inline-block;
+}
+
+#user-form-container h2 {
+  color: #fff;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
+}
+
+#user-form .btn {
   width: 100%;
 }
 
-#user-form-container #user-location {
+#user-form #user-location {
   width: 100%;
   z-index: 3;
 }
 
-#user-form-container .activity-picker {
+#user-form #sport-filter {
   width: 100%;
 }
 
@@ -49,28 +79,98 @@
   width: 100%;
 }
 
-@media only screen and (min-width: 500px) and (max-width : 767px) {
-  /*#user-form-container {
-    margin: 0 8em;
-  }*/
+.back-btn {
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #337ab7;
+  padding: 0.1em 0.5em 0.2em 0.5em;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  background: #2e6da4;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav>li .active {
+  padding-bottom: 10px;
+}
+
+#lighting .FALSE {
+  background-image: url('/img/icon-false.png');
+  padding: 0 10px;
+  margin-left: 0.5em;
+  background-repeat: no-repeat;
+}
+
+#lighting .TRUE {
+  background-image: url('/img/icon-true.png');
+  padding: 0 10px;
+  margin-left: 0.5em;
+  background-repeat: no-repeat;
+}
+
+#directions-link {
+  cursor: pointer;
+}
+
+.info {
+  background: rgba(134, 214, 148, 0.7);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  padding: 1.5em;
+  margin: 1em;
+}
+
+.info p {
+  font-size: 1.5em;
+}
+
+.info h2 {
+  color: #fff;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
+}
+
+#ajax-spinner p {
+  margin-top: 0.5em;
+  font-size: 1.5em;
+
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-default .navbar-nav>li .active {
+    border-left: 5px solid #86d694;
+    background-color: #fff;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-default .navbar-nav>li .active {
+    border-bottom: 6px solid #86d694;
+  }
+
+  .navbar #user-form {
+    padding: 0.6em 7em;
+  }
+
+  #user-form #user-location-container {
+    width: 50%;
+  }
+
+  #user-form #activity-picker-container {
+    width: 30%;
+  }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width : 991px) {
   #user-form-container {
     margin: 0 10em;
     top: 35%;
-  }
-
-  #user-form-container #user-location-container {
-    width: 50%;
-  }
-
-  #user-form-container #activity-picker-container {
-    width: 30%;
-  }
-
-  .navbar #user-form {
-    padding: 0.5em 7em;
   }
 }
 
@@ -79,18 +179,6 @@
     margin: 0 20em;
     top: 35%;
   }
-  #user-form-container #user-location-container {
-    width: 50%;
-  }
-
-  #user-form-container #activity-picker-container {
-    width: 30%;
-  }
-
-  .navbar #user-form {
-    padding: 0.5em 7em;
-  }
-
 }
 
 @media only screen and (min-width: 1451px) {
@@ -98,16 +186,4 @@
     margin: 0 35em;
     top: 35%;
   }
-  #user-form-container #user-location-container {
-    width: 50%;
-  }
-
-  #user-form-container #activity-picker-container {
-    width: 30%;
-  }
-
-  .navbar #user-form {
-    padding: 0.5em 7em;
-  }
-
 }

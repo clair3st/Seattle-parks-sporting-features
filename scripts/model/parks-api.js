@@ -11,7 +11,7 @@
   }
   ParkData.allParks = [];
   ParkData.allSportsArray = [];
-
+  $('#user-form').hide();
   ParkData.createTable = function(next){
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS parks_database (' +
@@ -67,6 +67,9 @@
   };
 
   ParkData.getAllSportsArray = function() {
+    $('#ajax-spinner').fadeOut();
+    $('#user-form').fadeIn();
+
     webDB.execute('SELECT * FROM parks_database WHERE feature LIKE "%ball%" ' +
     'OR feature LIKE "cricket" ' +
     'OR feature LIKE "disc%" ' +
@@ -112,36 +115,7 @@
     );
   };
 
-  // ParkData.allSports = function() {
-  //   return ParkData.allSportsArray.map(function(obj) {
-  //     return obj.feature;
-  //
-  //   })
-  //   .reduce(function(uniqueSports, sport) {
-  //     if (uniqueSports.indexOf(sport) === -1) {
-  //       uniqueSports.push(sport);
-  //     }
-  //     return ParkData.uniqueSports = uniqueSports;
-  //
-  //   }, []);
-  // };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   ParkData.createTable();
-
-
 
   module.ParkData = ParkData;
 })(window);
