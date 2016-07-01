@@ -40,3 +40,15 @@ Build in only 4 days for the final project of Codefellows 301.
 [Steven Than](https://github.com/steventhan)
 
 [John Gaines](https://github.com/firefly4266)
+
+
+##Third Party Sources:
+
+-Bootstrap
+-Google Maps
+-WebSQL
+-Normalize
+-JQuery and JQuery plugins
+-Page.js
+-Handlebars
+-Data is from the City of Seattle
