@@ -25,7 +25,7 @@
 
 #about-page {
   margin-left: -15px;
-  margin-left: -15px;
+  margin-right: -15px;
   padding: 1em;
   background-image:
   linear-gradient(rgba(0, 0, 0, 0.3),
@@ -33,12 +33,11 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;  
+  background-attachment: fixed;
 }
 
 #about-app, #about-us {
   background-color: rgba(255, 255, 255, 0.8);
-  max-width: 85%;
   margin: auto;
   padding: 1.5em;
 }

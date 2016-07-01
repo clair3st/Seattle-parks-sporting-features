@@ -2,6 +2,10 @@
   padding: 0 0.5em;
 }
 
+.developer-name {
+  display: inline-block;
+}
+
 .claire-photo {
   background-image: url('/img/claire-pic_480.jpg');
   background-position: center;
