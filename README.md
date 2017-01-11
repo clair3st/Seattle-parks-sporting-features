@@ -6,7 +6,7 @@
 
 Have you ever planned to play sport with friends and not known where your nearest field was? Or how about trying to find any sporting field when you move to a new city? Field Finders uses the most up to date data from the City of Seattle to connect you to your sporting field of choice.
 
-Up for a swim? Want to play basketball? Have you ever even heard of Pickleball? Seattle Field Finder will connect you to a huge range of different city run sporting facilities located all round the city. Start searching and get out onto the field
+Up for a swim? Want to play basketball? Have you ever even heard of Pickleball? Seattle Field Finder will connect you to a huge range of different City run sporting facilities located all around Seattle. Start searching and get out onto the field!
 
 Our search results provide users with:
 - Park address
