@@ -1,6 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/clair3st/Seattle-parks-sporting-features.svg?label=ready&title=Ready)](http://waffle.io/clair3st/Seattle-parks-sporting-features)
 
-##Code Fellows 301 Final Project: Field Finders
+## Code Fellows 301 Final Project: Field Finders
 
 ![alt text](img/fieldfinders-logo.png) [Field Finders on Heroku](http://field-finder.herokuapp.com/)
 
@@ -14,22 +14,22 @@ Our search results provide users with:
 - If the feature had lighting
 - Driving directions to get you to the park
 
-##User Stories
+## User Stories
 
-###User:
+### User:
 - As a user I want to find a sporting field in Seattle for the sport I want to play
 - As a user I want to be able to use my mobile device to do this
 - As a user I want a clean and simple interface to work on
 
 
-###Developer:
+### Developer:
 - As a developer I want my app to have mobile friendly CSS
 - As a developer I want to create a single-page application
 - As a developer I want to follow MVC design pattern
 - As a developer I want to use WebSQL to improve data retrieval performance
 
 
-##About the Hackers:
+## About the Hackers:
 
 Build in only 4 days for the final project of Codefellows 301.
 
@@ -42,7 +42,7 @@ Build in only 4 days for the final project of Codefellows 301.
 [John Gaines](https://github.com/firefly4266)
 
 
-##Third Party Sources:
+## Third Party Sources:
 
 - Bootstrap
 - Google Maps
